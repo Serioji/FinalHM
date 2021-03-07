@@ -39,6 +39,8 @@ public class gameBoard extends JFrame implements MouseListener {
         this.setSize(800, 800);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.addMouseListener(this);
+        Label label = new Label("points" + points);
+        this.add(label);
     }
 
     private void summonFood(int randomNumber1, int randomNumber2) {
@@ -202,10 +204,10 @@ public class gameBoard extends JFrame implements MouseListener {
                 points +=15;
             }
             if (points == 300) {
-                UI.render(this, "Победа", "Победа");
+                UI.render(this, "Победа", "You are a winner");
             }
             if (this.hasObsticle(row, col)) {
-                UI.render(this, "Смърт", "Kрай");
+                UI.render(this, "Смърт", "Game over");
                 System.exit(2);
             } else if (p.isMoveValid(row, col)) {
                 moveGps(row, col, p);
