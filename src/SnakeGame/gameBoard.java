@@ -212,8 +212,27 @@ public class gameBoard extends JFrame implements MouseListener {
         if (p.isMoveValid(row, col)) {
             if (hasFood(row, col))
             foodColled(row,col);
-
             else {
+                headLead(row, col, firstRow, firstCol);
+                this.tail[firstRow][firstCol] = (new Tail(firstRow, firstCol, Color.YELLOW));
+                this.tail[tailEndRow][tailEndCol] = null;
+                tailEndRow = firstRow;
+                tailEndCol = firstCol;
+                selectedSnake = null;
+            }
+    }
+            if (points == 300) {
+                UI.render(this, "Победа", "You are a winner");
+            }
+            if (this.hasObsticle(row, col)) {
+                UI.render(this, "Смърт", "Game over");
+                System.exit(2);
+            }
+
+            this.repaint();
+
+            }
+            private void headLead(int row , int col,int firstRow, int firstCol){
                 if(row<9&& row >0&&col>0&&col<9) {
                     this.snake[row][col] = (new Snake(row, col, head));
                     this.snake[firstRow][firstCol] = null;
@@ -242,23 +261,6 @@ public class gameBoard extends JFrame implements MouseListener {
                     this.snake[row][col] = (new Snake(row, col, head));
 
                 }
-                this.tail[firstRow][firstCol] = (new Tail(firstRow, firstCol, Color.YELLOW));
-                this.tail[tailEndRow][tailEndCol] = null;
-                tailEndRow = firstRow;
-                tailEndCol = firstCol;
-                selectedSnake = null;
-        }
-    }
-            if (points == 300) {
-                UI.render(this, "Победа", "You are a winner");
-            }
-            if (this.hasObsticle(row, col)) {
-                UI.render(this, "Смърт", "Game over");
-                System.exit(2);
-            }
-
-            this.repaint();
-
             }
             private void foodColled(int row,int col){
                 if (hasFood(row, col)) {
