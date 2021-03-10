@@ -31,17 +31,17 @@ public class GameTile {
             int tileY = this.row * this.tileSize;
 
             g.setColor(this.color);
-            g.fillRect(tileX+10, tileY+31, TILE_SIZE, TILE_SIZE);
+            g.fillRect(tileX+60, tileY+81, TILE_SIZE, TILE_SIZE);
             g.setColor(Color.BLACK);
-            for (int i=31; i<=431 ;i+=50){
-                for(int j=8;j<=408;j+=50){
-                    if(i<=381&&j<=358) {
+            for (int i=81; i<=481 ;i+=50){
+                for(int j=58;j<=458;j+=50){
+                    if(i<=431&&j<=408) {
                         g.fillRect(j, i, 2, 50);
                         g.fillRect(j, i, 50, 2);
-                    }  if(i==431&&j<408){
+                    }  if(i==481&&j<458){
                         g.fillRect(j, i, 50, 2);
                     }
-                    if(i<431&&j==408){
+                    if(i<481&&j==458){
                         g.fillRect(j, i, 2, 52);
                     }
 

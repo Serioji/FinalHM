@@ -2,9 +2,9 @@ package SnakeGame;
 
 import java.awt.*;
 
-public class Snake extends Tile{
-    protected final Color head = new Color(204,204,0);
-    public Snake(int row, int col, Color color) {
+public class Tail extends Tile{
+    protected final Color tail = new Color(255,255,153);
+    public Tail(int row, int col, Color color) {
 
         this.row = row;
         this.col = col;
@@ -29,7 +29,7 @@ public class Snake extends Tile{
     public void render(Graphics g) {
         int x = this.col * GameTile.TILE_SIZE;
         int y = this.row * GameTile.TILE_SIZE;
-        g.setColor(Color.YELLOW);
+        g.setColor(tail);
         g.fillRect(x + 10, y + 33, 48, 48);
     }
     public void move(int row, int col) {
